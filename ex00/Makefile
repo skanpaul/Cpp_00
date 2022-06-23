@@ -6,7 +6,7 @@
 #    By: ski <ski@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/23 11:30:56 by ski               #+#    #+#              #
-#    Updated: 2022/06/23 11:45:44 by ski              ###   ########.fr        #
+#    Updated: 2022/06/23 13:30:42 by ski              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC		= g++-11
 CFLAG	= -Wall -Wextra -Werror -std=c++98 -pedantic 
 
 SRC		= $(wildcard *.cpp)
-OBJ		= $(SRC:.o=.cpp)
+OBJ		= $(SRC:.cpp=.o)
 
 RM		= rm -f
 
@@ -30,7 +30,7 @@ all: $(NAME)
 
 # **************************************************************************** #
 $(NAME): $(OBJ)
-	$(CC) $(CFLAG) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAG) $^ -o $(NAME)
 
 clean:
 	$(RM) $(OBJ)
